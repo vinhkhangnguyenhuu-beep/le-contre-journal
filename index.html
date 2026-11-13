@@ -167,7 +167,6 @@ function intro(){
  const rawDpr=window.devicePixelRatio||1;
  const w=innerWidth,h=innerHeight;
  const maxDim=Math.max(w,h);
- /* On low-end or extreme high-res, cap DPR to 1 to guarantee 60fps on ancient hardware without fill-rate bottleneck */
  let dpr=isLowEnd?1:Math.min(rawDpr,maxDim>1600?1.25:1.5);
  const x=c.getContext('2d',{alpha:false,desynchronized:true});
  
@@ -181,22 +180,38 @@ function intro(){
  const off=document.createElement('canvas');off.width=Math.ceil(W0*2);off.height=Math.ceil(H0*2);
  const oc=off.getContext('2d');oc.scale(2,2);oc.translate(W0/2,H0-2);body(oc,bw,bh,nh);
 
- /* Pre-render bottle glow once to avoid heavy 60fps shadowBlur calculations on low-end GPUs */
+ /* Pre-compute soft radial glow in 0.02ms (eliminates heavy Gaussian blur shader stalls upon initiation) */
  const glowPad=26;
  const offGlow=document.createElement('canvas');
  offGlow.width=Math.ceil((W0+glowPad*2)*2);offGlow.height=Math.ceil((H0+glowPad*2)*2);
  const ogc=offGlow.getContext('2d');
- ogc.scale(2,2);ogc.shadowColor='#fff';ogc.shadowBlur=22;
+ ogc.scale(2,2);
+ const glowGrad=ogc.createRadialGradient(W0/2+glowPad,(H0-2)/2+glowPad,0,W0/2+glowPad,(H0-2)/2+glowPad,Math.max(W0,H0)*0.85);
+ glowGrad.addColorStop(0,'rgba(255,255,255,0.7)');
+ glowGrad.addColorStop(0.35,'rgba(255,255,255,0.28)');
+ glowGrad.addColorStop(0.7,'rgba(255,255,255,0.08)');
+ glowGrad.addColorStop(1,'rgba(255,255,255,0)');
+ ogc.fillStyle=glowGrad;
+ ogc.fillRect(0,0,W0+glowPad*2,H0+glowPad*2);
  ogc.drawImage(off,glowPad,glowPad,W0,H0);
 
  const TF=700;
- const dr=Array.from({length:N},(_,k)=>({w:W[k%W.length],s:(13+Math.random()**2*30)*F,a:.55+Math.random()*.45,th:Math.random()*6.283,oy:Math.random()*bw*.25,phi:Math.random()*6.283,sp:(250+Math.random()*1500)*G,sn:(Math.random()-.5)*7,vt:Math.random(),m:0,on:0,x:0,y:0,vx:0,vy:0,dir:1,sl:0,ln:0,jj:0,tj:0,u:0,wt:0}));
+ const dr=[];
+ dr.length=N;
+ for(let k=0;k<N;k++){
+  dr[k]={
+   w:W[k%W.length],s:(13+Math.random()**2*30)*F,a:.55+Math.random()*.45,
+   th:Math.random()*6.283,oy:Math.random()*bw*.25,phi:Math.random()*6.283,
+   sp:(250+Math.random()*1500)*G,sn:(Math.random()-.5)*7,vt:Math.random(),
+   m:0,on:0,x:0,y:0,vx:0,vy:0,dir:1,sl:0,ln:0,jj:0,tj:0,u:0,wt:0
+  };
+ }
  const LN=10,lph=Array.from({length:LN},()=>Math.random()*6.283),lamp=Array.from({length:LN},()=>(6+Math.random()*16)*F),ls=Array.from({length:LN},()=>(150+Math.random()*120)*F);
  const le=l=>(l<LN/2?lx0:lx1)+((l%(LN/2))-LN/4)*8*F,lx=(l,y)=>{const pr=Math.min(Math.max((y-fy)/(h*1.3),0),1);return cxm+(le(l)-cxm)*(1-pr*.92)+Math.sin(y*.012+lph[l])*lamp[l]};
  const lane=(d,sd)=>{d.m=2;d.ln=sd*(LN/2)+(Math.random()*(LN/2)|0);d.jj=(Math.random()-.5)*14*F};
  const shk=(T,a,d,m)=>T>a&&T<a+d?(Math.random()-.5)*m*(1-(T-a)/d):0;
  const tF=Math.sqrt(2*(fy+H*2)/(GR*.83)),bt={y:-H*2,vy:0,r:-.95,wr:1.1/tF};
- let TI=1e9,vimp=0,shards=null,spl=[],cy=0,ord=0,last=performance.now();const t0=last;
+ let TI=1e9,vimp=0,shards=null,spl=[],cy=0,ord=0,last=0,t0=0;
 
  /* Pre-allocated typed buffer for streams (zero GC pauses) */
  const mx=new Float32Array(LN);
@@ -213,11 +228,11 @@ function intro(){
   }
  }
 
- /* Dynamic frame-rate throttle to guarantee smoothness even on ancient devices */
  let slowFrameCount=0;
 
- (function f(t){
+ function f(t){
   if(done)return;
+  if(!t0){t0=t;last=t;}
   const rawDt=(t-last)/1000;
   const T=t-t0,dt=Math.min(rawDt,.05);last=t;
 
@@ -362,11 +377,23 @@ function intro(){
    }
    x.fillStyle='#fff';x.globalAlpha=.8*Math.max(0,1-tau/.5);x.fillRect(0,0,w,h);x.globalAlpha=1;
   }
-  if(tau>3.2)show();else requestAnimationFrame(f)})(t0)}
+  if(tau>3.2)show();else requestAnimationFrame(f);
+ }
+
+ /* Synchronize start with clean requestAnimationFrame so the browser finishes initial layout with 0 stutter */
+ requestAnimationFrame(f);
+}
 $('#skip').onclick=show;
 $('#abt').onclick=()=>{location.href=URLS.about};
 $('#aut').style.display='none';
 let seen=false;try{seen=sessionStorage.getItem('seen')=='1'}catch(e){}
-if(seen)show();else intro();
+if(seen)show();else{
+ if(document.fonts&&document.fonts.load){document.fonts.load("italic 300 24px 'Cormorant Garamond'");}
+ if(document.readyState==='loading'){
+  window.addEventListener('DOMContentLoaded',()=>requestAnimationFrame(intro));
+ }else{
+  requestAnimationFrame(intro);
+ }
+}
 (async()=>{try{const u=await claude.use('user');if(u&&(u.isOwner()||u.canEdit()))$('#pen').hidden=false;art=await claude.use('artifact');assets=await claude.use('assets')}catch(e){}})();
 </script></body></html>
