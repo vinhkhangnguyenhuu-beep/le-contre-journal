@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://le-contre-journal.netlify.app/sitemap.xml

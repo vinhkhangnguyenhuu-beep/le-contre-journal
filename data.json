@@ -1,0 +1,62 @@
+{
+  "title": "Le Contre-Journal",
+  "sub": "Qui détient le droit de refuser une Création, fruit sacré de l'Inspiration, germe divin de la Muse ? ",
+  "updated": "2026-11-12",
+  "items": [
+    {
+      "id": "a1",
+      "title": "Mes funérailles",
+      "cat": "Poèmes",
+      "slug": "mes-funerailles",
+      "url": "textes/mes-funerailles/index.html",
+      "img": "images/mes-funerailles.jpg",
+      "th": "nuit",
+      "desc": "Sous le ciel déréglé qui ne cesse de s’altérer, Tantôt gris, tantôt cramoisi, Des tas de cadavres dorment à perte de vue, Bercés par les grondements…"
+    },
+    {
+      "id": "a2",
+      "title": "L'hydre",
+      "cat": "Poèmes",
+      "slug": "l-hydre",
+      "url": "textes/l-hydre/index.html",
+      "img": "images/l-hydre.jpg",
+      "th": "sépia",
+      "desc": "Depuis mon premier souffle sur cette terre, Je veux la perfection. Moqueuse, elle l’est, Avec ses trognes narquoises. Pourtant, elle est mon apothéose …"
+    },
+    {
+      "id": "a3",
+      "title": "L'art de la science",
+      "cat": "Textes",
+      "slug": "l-art-de-la-science",
+      "url": "textes/l-art-de-la-science/index.html",
+      "img": "",
+      "th": "encre",
+      "desc": "« Je ne remettrai à personne du poison, si on m’en demande, ni ne prendrai l’initiative d’une pareille suggestion ; semblablement, je ne remettrai à…"
+    },
+    {
+      "id": "t1793850749437",
+      "title": "Le gouffre entre l’élite et le public",
+      "cat": "Textes",
+      "slug": "le-gouffre-entre-l-elite-et-le-public",
+      "url": "textes/le-gouffre-entre-l-elite-et-le-public/index.html",
+      "img": "images/le-gouffre-entre-l-elite-et-le-public.jpg",
+      "th": "brume",
+      "desc": "Me voici fraîchement diplômé du secondaire. De grâce, j’ai déjà commencé à oublier plusieurs choses qui ont été martelées trop agressivement dans mon…"
+    },
+    {
+      "id": "t1793851298859",
+      "title": "Des vêtements",
+      "cat": "Poèmes",
+      "slug": "des-vetements",
+      "url": "textes/des-vetements/index.html",
+      "img": "",
+      "th": "sépia",
+      "desc": "Nu est le coureur qui passe de naguère à demain, Narguant la chute, les jambes déjà lasses, Ignorant l’aube des sentiers de glace. Ce pèlerin sans armure…"
+    }
+  ],
+  "about": {
+    "title": "La mission",
+    "url": "a-propos/index.html",
+    "desc": "« L'enfer, c'est les autres » - Huis Clos, Jean-Paul Sartre Il n'y a rien de plus naturel, de plus humain que la création. Malgré cette vérité…"
+  }
+}
