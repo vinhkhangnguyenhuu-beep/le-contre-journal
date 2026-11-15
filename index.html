@@ -8,10 +8,10 @@ if(!D.author)D.author={id:'author',cat:'',title:'L’auteur',th:'nuit',img:'',mo
 const TH={nuit:['#000','#f4f4f4','#fff'],blanc:['#f5f5f3','#0a0a0a','#000'],encre:['#f1e9d8','#221a12','#8a3b2a'],aube:['#2a1620','#ffe9d6','#ff9a76'],brume:['#10222b','#dcefee','#7fd4c8'],brouillard:['#171a1f','#e6e8ec','#b8c0cc'],crépuscule:['#1b1426','#f2e8f7','#c9a7e8'],sépia:['#2a2016','#f1e4cc','#c89b5a']};
 const toast=m=>{const t=$('#toast');t.textContent=m;t.style.opacity=1;setTimeout(()=>t.style.opacity=0,2800)};
 function idx(){
- let h=`<h1 data-k=title ${ed?'contenteditable':''}>${E(D.title)}</h1><p class=by>Par Huu Vinh Khang Nguyen</p><p class=sub data-k=sub ${ed?'contenteditable':''}>${E(D.sub)}</p>`;
+ let h=`<div class=idx-container><h1 data-k=title ${ed?'contenteditable':''}>${E(D.title)}</h1><p class=by>Par Huu Vinh Khang Nguyen</p><p class=sub data-k=sub ${ed?'contenteditable':''}>${E(D.sub)}</p>`;
  [...new Set(D.items.map(i=>i.cat))].forEach(c=>{h+=`<h2>${E(c)}</h2>`+D.items.filter(i=>i.cat==c).map(i=>`<a class=it href="${URLS[i.id]}" data-id="${E(i.id)}">${E(i.title)}</a>`).join('')});
- $('#abt').textContent=D.about.title||'À propos';$('#aut').textContent=D.author.title||'L’auteur';if(ed)h+=`<div class=re-wrap><button class=btn id=add>+ nouveau texte</button></div>`;h+=`<div class=re-wrap><button class=btn id=re>revoir l’intro</button></div>`;
- $('#idx').innerHTML=h;[...$('#idx').children].forEach((el,i)=>el.style.animationDelay=Math.min(i*.14,2.4)+'s')}
+ $('#abt').textContent=D.about.title||'À propos';$('#aut').textContent=D.author.title||'L’auteur';if(ed)h+=`<div class=re-wrap><button class=btn id=add>+ nouveau texte</button></div>`;h+=`<div class=re-wrap><button class=btn id=re>revoir l’intro</button></div></div>`;
+ $('#idx').innerHTML=h;[...$('.idx-container').children].forEach((el,i)=>el.style.animationDelay=Math.min(i*.14,2.4)+'s')}
 $('#idx').onclick=e=>{const b=e.target.closest('.it');if(e.target.id=='add')add();if(e.target.id=='re'){try{sessionStorage.removeItem('seen')}catch(x){}location.reload()}};
 $('#idx').addEventListener('focusout',e=>{const k=e.target.dataset&&e.target.dataset.k;if(k)D[k]=e.target.textContent});
 function open(id){vm=null;cur=id=='about'?D.about:id=='author'?D.author:D.items.find(i=>i.id==id);rd();$('#rd').classList.add('show');$('#rd').scrollTop=0}

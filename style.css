@@ -5,14 +5,14 @@ html,body{margin:0;height:100%;background:#000;color:#e9e4f5;font-family:'Cormor
 #skip{position:absolute;z-index:2;top:max(env(safe-area-inset-top),16px);right:clamp(12px,3vw,24px);background:#000a;border:1px solid #fff9;border-radius:99px;color:#fff;font:300 clamp(0.82rem,2.2vw,0.98rem) 'Cormorant Garamond',Georgia,serif;letter-spacing:.08em;padding:clamp(6px,1.6vw,9px) clamp(12px,3.2vw,18px);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);cursor:pointer;transition:background .3s,border-color .3s}
 #skip:hover{background:rgba(255,255,255,0.18);border-color:#fff}
 #idx{position:fixed;inset:0;z-index:5;overflow:auto;background:#000;padding:max(env(safe-area-inset-top),24px) clamp(16px,5vw,36px) clamp(60px,12vh,110px);box-sizing:border-box}
-#idx>*{opacity:0}
-#idx.show>*{animation:up 1.8s ease both}
+.idx-container{max-width:min(38rem,100%);margin:0 auto;text-align:left;box-sizing:border-box}
+.idx-container>*{opacity:0}
+#idx.show .idx-container>*{animation:up 1.8s ease both}
 @keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-#idx>*{max-width:min(38rem,100%);margin-left:auto;margin-right:auto}
-#idx h1{font-weight:300;font-size:clamp(2.4rem,9.5vw,4.5rem);margin:clamp(4vh,8vh,11vh) auto .2em;line-height:1.08;text-align:left}
-.by{font-size:clamp(0.85rem,2.3vw,1.1rem);letter-spacing:clamp(0.1em,0.25vw,0.16em);text-transform:uppercase;opacity:.8;font-weight:400;margin:-0.1em auto clamp(1rem,2.5vh,1.6em);color:#e9e4f5;text-align:left}
-.sub{opacity:.65;font-style:italic;font-size:clamp(1.02rem,2.8vw,1.3rem);line-height:1.55;margin:0 auto clamp(2rem,5vh,3.5rem);text-align:left}
-#idx h2{font-size:clamp(0.72rem,1.8vw,0.85rem);letter-spacing:.35em;text-transform:uppercase;color:#8c8c8c;font-weight:500;margin:clamp(1.8rem,4vh,2.8rem) auto .4rem;text-align:left}
+#idx h1,.idx-container h1{font-weight:300;font-size:clamp(2.4rem,9.5vw,4.5rem);margin:clamp(4vh,8vh,11vh) 0 .2em;line-height:1.08;text-align:left}
+.by,.idx-container .by{font-size:clamp(0.85rem,2.3vw,1.1rem);letter-spacing:clamp(0.1em,0.25vw,0.16em);text-transform:uppercase;opacity:.8;font-weight:400;margin:-0.1em 0 clamp(1rem,2.5vh,1.6em);color:#e9e4f5;text-align:left}
+.sub,.idx-container .sub{opacity:.65;font-style:italic;font-size:clamp(1.02rem,2.8vw,1.3rem);line-height:1.55;margin:0 0 clamp(2rem,5vh,3.5rem);text-align:left}
+#idx h2,.idx-container h2{font-size:clamp(0.72rem,1.8vw,0.85rem);letter-spacing:.35em;text-transform:uppercase;color:#8c8c8c;font-weight:500;margin:clamp(1.8rem,4vh,2.8rem) 0 .4rem;text-align:left}
 .it{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid #ffffff18;color:inherit;font:300 clamp(1.25rem,3.8vw,1.65rem) 'Cormorant Garamond',Georgia,serif;padding:clamp(0.6rem,1.8vh,0.85rem) 0;transition:padding .4s,color .4s;text-decoration:none}
 .it:active,.it:hover{padding-left:.8rem;color:#fff}
 #rd{position:fixed;inset:0;z-index:6;overflow:auto;opacity:0;pointer-events:none;transition:opacity .7s,background .7s}
@@ -33,7 +33,7 @@ html,body{margin:0;height:100%;background:#000;color:#e9e4f5;font-family:'Cormor
 .ep{max-width:34rem;margin:0 auto;padding:0 20px 30vh;display:grid;gap:10px}
 .ep input,.ep select,.ep textarea{font:1rem system-ui,sans-serif;padding:10px;border-radius:8px;border:1px solid #8886;background:#fff2;color:inherit;width:100%}
 .ep option{color:#000}
-.re-wrap{max-width:min(38rem,100%);margin:clamp(1.8rem,4vh,2.8rem) auto 2rem;text-align:left}
+.re-wrap{margin:clamp(1.8rem,4vh,2.8rem) 0 2rem;text-align:left}
 #re,.btn{display:inline-block;padding:clamp(6px,1.4vw,9px) clamp(14px,2.8vw,20px);border-radius:99px;border:1px solid rgba(255,255,255,0.35);background:rgba(255,255,255,0.04);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#ccc;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(0.8rem,1.8vw,0.92rem);font-weight:400;letter-spacing:0.12em;text-transform:uppercase;text-align:left;cursor:pointer;transition:all .3s ease;box-sizing:border-box}
 #re:hover,#re:active,.btn:hover,.btn:active{background:rgba(255,255,255,0.14);border-color:#fff;color:#fff;transform:translateY(-1px)}
 .ep .btn{margin:0;color:inherit;border-color:currentColor}
