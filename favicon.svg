@@ -3,54 +3,17 @@
   <rect width="64" height="64" fill="#000"/>
 
   <g fill="#fff">
-    <!-- Main feather silhouette -->
-    <path d="
-      M17 49
-      C19 43 22 36 26 30
-      C31 22 39 15 53 9
-      C51 17 47 23 43 28
-      C39 34 34 39 29 42
-      C25 45 20 47 17 49 Z"/>
+    <!-- Stopper -->
+    <path d="M22 12 H42 V15 H22 Z"/>
 
-    <!-- Feather barbs: upper edge -->
-    <path d="M23 37 C21 33 22 29 27 25 C26 30 25 34 23 37Z"/>
-    <path d="M27 31 C26 26 29 21 35 18 C32 23 30 28 27 31Z"/>
-    <path d="M32 25 C33 20 38 15 44 13 C39 18 36 22 32 25Z"/>
-    <path d="M38 19 C41 14 46 11 51 10 C46 14 42 17 38 19Z"/>
-
-    <!-- Feather barbs: lower edge -->
-    <path d="M23 38 C27 36 30 34 33 30 C32 35 28 39 23 38Z"/>
-    <path d="M29 33 C33 31 37 27 40 23 C39 29 34 33 29 33Z"/>
-    <path d="M35 27 C39 25 43 20 46 16 C45 22 40 27 35 27Z"/>
-    <path d="M40 21 C44 18 48 14 52 10 C50 16 45 20 40 21Z"/>
-
-    <!-- Fine feather detail -->
-    <path d="M19 44 C21 40 24 36 28 32 L26 37 C23 40 21 43 19 44Z"/>
+    <!-- Bottle neck -->
+    <path d="M24 15 H40 V26
+      C47 27 51 32 51 39
+      L52 49
+      C52 54 49 56 44 56
+      H20
+      C15 56 12 54 12 49
+      L13 39
+      C13 32 17 27 24 26 Z"/>
   </g>
-
-  <!-- Central shaft -->
-  <path
-    d="M17 49 C25 38 35 24 52 10"
-    fill="none"
-    stroke="#fff"
-    stroke-width="1.1"
-    stroke-linecap="round"/>
-
-  <!-- Fine engraved lines -->
-  <g fill="none" stroke="#aaa" stroke-width=".3" opacity=".85">
-    <path d="M22 39 C22 34 24 30 28 26"/>
-    <path d="M25 35 C27 29 31 23 36 19"/>
-    <path d="M30 29 C34 22 39 17 45 13"/>
-    <path d="M25 40 C29 38 32 35 35 31"/>
-    <path d="M31 34 C36 30 40 25 44 20"/>
-    <path d="M37 28 C42 24 46 18 50 13"/>
-  </g>
-
-  <!-- Elegant extended quill -->
-  <path
-    d="M17 49 C14 52 12 55 10 58"
-    fill="none"
-    stroke="#fff"
-    stroke-width=".9"
-    stroke-linecap="round"/>
 </svg>
