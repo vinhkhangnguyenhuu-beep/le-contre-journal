@@ -9,9 +9,9 @@ html,body{margin:0;height:100%;background:#000;color:#e9e4f5;font-family:'Cormor
 #idx.show>*{animation:up 1.8s ease both}
 @keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 #idx>*{max-width:min(38rem,100%);margin-left:auto;margin-right:auto}
-#idx h1{font-weight:300;font-size:clamp(2.4rem,9.5vw,4.5rem);margin:clamp(4vh,8vh,11vh) auto .2em;line-height:1.08;text-align:center}
-.by{font-size:clamp(0.85rem,2.3vw,1.1rem);letter-spacing:clamp(0.1em,0.25vw,0.16em);text-transform:uppercase;opacity:.8;font-weight:400;margin:-0.1em auto clamp(1rem,2.5vh,1.6em);color:#e9e4f5;text-align:center}
-.sub{opacity:.65;font-style:italic;font-size:clamp(1.02rem,2.8vw,1.3rem);line-height:1.55;margin-bottom:clamp(2rem,5vh,3.5rem);text-align:center}
+#idx h1{font-weight:300;font-size:clamp(2.4rem,9.5vw,4.5rem);margin:clamp(4vh,8vh,11vh) 0 .2em;line-height:1.08;text-align:left}
+.by{font-size:clamp(0.85rem,2.3vw,1.1rem);letter-spacing:clamp(0.1em,0.25vw,0.16em);text-transform:uppercase;opacity:.8;font-weight:400;margin:-0.1em 0 clamp(1rem,2.5vh,1.6em);color:#e9e4f5;text-align:left}
+.sub{opacity:.65;font-style:italic;font-size:clamp(1.02rem,2.8vw,1.3rem);line-height:1.55;margin-bottom:clamp(2rem,5vh,3.5rem);text-align:left}
 #idx h2{font-size:clamp(0.72rem,1.8vw,0.85rem);letter-spacing:.35em;text-transform:uppercase;color:#8c8c8c;font-weight:500;margin-top:clamp(1.8rem,4vh,2.8rem);margin-bottom:.4rem}
 .it{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid #ffffff18;color:inherit;font:300 clamp(1.25rem,3.8vw,1.65rem) 'Cormorant Garamond',Georgia,serif;padding:clamp(0.6rem,1.8vh,0.85rem) 0;transition:padding .4s,color .4s;text-decoration:none}
 .it:active,.it:hover{padding-left:.8rem;color:#fff}
@@ -33,8 +33,8 @@ html,body{margin:0;height:100%;background:#000;color:#e9e4f5;font-family:'Cormor
 .ep{max-width:34rem;margin:0 auto;padding:0 20px 30vh;display:grid;gap:10px}
 .ep input,.ep select,.ep textarea{font:1rem system-ui,sans-serif;padding:10px;border-radius:8px;border:1px solid #8886;background:#fff2;color:inherit;width:100%}
 .ep option{color:#000}
-#re,.btn{display:block;width:fit-content;max-width:min(90%,24rem);margin:clamp(2.5rem,6vh,4rem) auto clamp(2rem,5vh,3.5rem);padding:clamp(10px,2.2vw,14px) clamp(22px,5vw,36px);border-radius:99px;border:1px solid rgba(255,255,255,0.45);background:rgba(255,255,255,0.05);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#e5e5e5;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(0.92rem,2.5vw,1.18rem);font-weight:400;letter-spacing:0.14em;text-transform:uppercase;text-align:center;cursor:pointer;transition:all .35s ease;box-sizing:border-box}
-#re:hover,#re:active,.btn:hover,.btn:active{background:rgba(255,255,255,0.16);border-color:#fff;color:#fff;transform:translateY(-2px);box-shadow:0 4px 20px rgba(255,255,255,0.12)}
+#re,.btn{display:inline-block;margin:clamp(1.5rem,4vh,2.5rem) 0 2rem;padding:clamp(6px,1.4vw,9px) clamp(14px,2.8vw,20px);border-radius:99px;border:1px solid rgba(255,255,255,0.35);background:rgba(255,255,255,0.04);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#ccc;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(0.8rem,1.8vw,0.92rem);font-weight:400;letter-spacing:0.12em;text-transform:uppercase;text-align:left;cursor:pointer;transition:all .3s ease;box-sizing:border-box}
+#re:hover,#re:active,.btn:hover,.btn:active{background:rgba(255,255,255,0.14);border-color:#fff;color:#fff;transform:translateY(-1px)}
 .ep .btn{margin:0;color:inherit;border-color:currentColor}
 #pen,#sv{position:fixed;z-index:9;bottom:max(env(safe-area-inset-bottom),18px);border:0;border-radius:99px;font:1rem system-ui,sans-serif;padding:12px 18px;background:#fff;color:#000}
 #pen{left:18px;font-size:1.2rem}#sv{right:18px}
