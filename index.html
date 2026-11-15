@@ -10,7 +10,7 @@ const toast=m=>{const t=$('#toast');t.textContent=m;t.style.opacity=1;setTimeout
 function idx(){
  let h=`<h1 data-k=title ${ed?'contenteditable':''}>${E(D.title)}</h1><p class=by>Par Huu Vinh Khang Nguyen</p><p class=sub data-k=sub ${ed?'contenteditable':''}>${E(D.sub)}</p>`;
  [...new Set(D.items.map(i=>i.cat))].forEach(c=>{h+=`<h2>${E(c)}</h2>`+D.items.filter(i=>i.cat==c).map(i=>`<a class=it href="${URLS[i.id]}" data-id="${E(i.id)}">${E(i.title)}</a>`).join('')});
- $('#abt').textContent=D.about.title||'À propos';$('#aut').textContent=D.author.title||'L’auteur';if(ed)h+=`<button class=btn id=add>+ nouveau texte</button>`;h+=`<button class=btn id=re>revoir l’intro</button>`;
+ $('#abt').textContent=D.about.title||'À propos';$('#aut').textContent=D.author.title||'L’auteur';if(ed)h+=`<div class=re-wrap><button class=btn id=add>+ nouveau texte</button></div>`;h+=`<div class=re-wrap><button class=btn id=re>revoir l’intro</button></div>`;
  $('#idx').innerHTML=h;[...$('#idx').children].forEach((el,i)=>el.style.animationDelay=Math.min(i*.14,2.4)+'s')}
 $('#idx').onclick=e=>{const b=e.target.closest('.it');if(e.target.id=='add')add();if(e.target.id=='re'){try{sessionStorage.removeItem('seen')}catch(x){}location.reload()}};
 $('#idx').addEventListener('focusout',e=>{const k=e.target.dataset&&e.target.dataset.k;if(k)D[k]=e.target.textContent});
