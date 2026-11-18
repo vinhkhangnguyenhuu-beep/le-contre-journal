@@ -99,3 +99,6 @@ a.it { text-decoration:none;box-sizing:border-box }
         box-sizing: border-box;
     }
 }
+
+/* Citation : 2 pt plus petite que le texte, alignée à droite */
+.pp.quote{font-size:calc(1em - 2pt);text-align:right}
