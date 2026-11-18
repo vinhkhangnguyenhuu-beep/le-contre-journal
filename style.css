@@ -87,3 +87,14 @@ a.bk { display:grid;place-items:center;text-decoration:none }
 .more a:hover { padding-left:.6rem }
 .sr { position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap }
 a.it { text-decoration:none;box-sizing:border-box }
+
+
+
+/* Mobile-only horizontal margins */
+@media screen and (max-width: 600px) {
+    .tx {
+        padding-left: 18px;
+        padding-right: 18px;
+        box-sizing: border-box;
+    }
+}
