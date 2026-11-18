@@ -90,11 +90,12 @@ a.it { text-decoration:none;box-sizing:border-box }
 
 
 
-/* Mobile-only horizontal margins */
+
+/* Mobile-only margins */
 @media screen and (max-width: 600px) {
     .tx {
-        padding-left: 18px;
-        padding-right: 18px;
+        padding-left: 18px !important;
+        padding-right: 18px !important;
         box-sizing: border-box;
     }
 }
